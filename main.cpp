@@ -1,25 +1,27 @@
 #include "mbed.h"
 
-int nth_term = 14;
-int term_1, term_2;
-int next_term = 0;
+int nth_term = 34;
+
+int fib(int n);
 
 int main() {
 
     printf("Lab 2 program \r\n");
-    term_1 = 0;
-    term_2 = 1;
 
-
-    printf("nth term is %d \r\n", nth_term);
-
-    printf("0, 1, ");
-    for(int i=2; i<nth_term; i++){
-        next_term = term_1 + term_2;
-        printf("%d, ", next_term);
-        term_1 = term_2;
-        term_2 = next_term;
+    for(int i=0; i<nth_term; i++){
+        printf("%d, ", fib(i));
     }
     printf("..!\r\n");
+}
+
+int fib(int n){
+    // take an input.. calculate part of the fibonaci series and return result.
+    if(n == 0)
+        return 0;
+    if(n == 1)
+        return 1;
+    else{ 
+        return (fib(n-1) + fib(n-2));
+    }
 
 }
